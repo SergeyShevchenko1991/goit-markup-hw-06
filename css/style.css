@@ -40,6 +40,19 @@ p {
   margin-bottom: 0;
 }
 
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
 .h2 {
   margin-bottom: 50px;
   font-weight: 700;
@@ -263,6 +276,13 @@ p {
   z-index: 1;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
+  transition-duration: 250ms;
+  transition-property: background-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.intro-button:hover {
+  background-color: #188ce8;
 }
 
 .benefits {
@@ -426,10 +446,15 @@ p {
 
 .footer-inner {
   display: flex;
+  align-items: flex-start;
 }
 
 .footer-column {
   margin-right: 70px;
+}
+
+.footer-column:last-of-type {
+  margin-right: 94px;
 }
 
 .footer-social-title {
@@ -632,10 +657,163 @@ p {
   transform: translateY(-10%);
 }
 
+.form-title {
+  margin-bottom: 12px;
+  font-size: 20px;
+  line-height: 1.15;
+  color: var(--black-color);
+}
+
+.form-field-inner {
+  position: relative;
+}
+
+.form-field {
+  margin-bottom: 10px;
+}
+
+.form-textarea {
+  margin-bottom: 25px;
+}
+
+.form-field-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  line-height: 1.16;
+}
+
+.form-field-input {
+  width: 100%;
+  padding-left: 42px;
+  padding-right: 12px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  background-color: var(--white-color);
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  transition-duration: 250ms;
+  transition-property: border;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-field-input:focus {
+  border: 1px solid #2196f3;
+  outline: none;
+}
+
+.form-field-input:focus + .form-field-icon {
+  fill: var(--brand-color);
+}
+
+.form-field-icon {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition-duration: 250ms;
+  transition-property: fill;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-field-textarea {
+  height: 120px;
+  resize: none;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.form-field-textarea::placeholder {
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.form-agreement {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.checkbox-conroll {
+  position: absolute;
+  left: 14px;
+  top: 4px;
+  flex-shrink: 0;
+  width: 16px;
+  height: 15px;
+  box-shadow: inset 0 0 0 2px black;
+  border-radius: 3px;
+  margin-right: 8px;
+}
+
+.form-checkbox {
+  appearance: none;
+}
+
+.checkbox-icon {
+  opacity: 0;
+  width: 16px;
+  height: 15px;
+  transition-duration: 250ms;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-checkbox:checked + .checkbox-icon {
+  opacity: 1;
+}
+
+.form-checkbox-label {
+  line-height: 1.71;
+  padding-left: 40px;
+  position: relative;
+  user-select: none;
+  z-index: 0;
+}
+
+.form-checkbox-label a {
+  color: var(--brand-color);
+}
+
+.form-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.form-button {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: none;
+  text-align: center;
+  min-width: 200px;
+  background-color: var(--brand-color);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+  color: var(--white-color);
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  transition-duration: 250ms;
+  transition-property: background-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-button:hover {
+  background-color: #188ce8;
+}
+
 .modal {
   position: relative;
   width: 528px;
-  min-height: 581px;
+  min-height: 100px;
   background-color: var(--white-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -645,6 +823,10 @@ p {
   transition-duration: 250ms;
   transition-property: opacity, transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-inner {
+  padding: 40px;
 }
 
 .modal-clouse-button {
@@ -660,4 +842,87 @@ p {
   border-radius: 50%;
   background-color: var(--white-color);
   cursor: pointer;
+  transition-duration: 250ms;
+  transition-property: fill, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-clouse-button:hover {
+  border-color: rgba(0, 0, 0, 0.1);
+  fill: var(--brand-color);
+}
+
+.subscribe {
+  display: flex;
+  align-items: flex-end;
+}
+
+.subscribe-control {
+  margin-right: 12px;
+}
+
+.subscribe-label {
+  display: block;
+  padding-top: 8px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--white-color);
+}
+
+.subscribe-field {
+  display: block;
+  min-width: 358px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: inherit;
+  background-color: transparent;
+  color: var(--white-color);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+}
+
+.subscribe-field::placeholder {
+  color: var(--secondary-color);
+}
+
+.subscribe-submit {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 28px;
+  padding-right: 28px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: none;
+  background-color: var(--brand-color);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: var(--white-color);
+  font-family: inherit;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  fill: var(--white-color);
+  z-index: 1;
+  cursor: pointer;
+  transition-duration: 250ms;
+  transition-property: background-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.subscribe-submit:hover {
+  background-color: #188ce8;
+}
+
+.subscribe-submit span {
+  margin-right: 10px;
 }
